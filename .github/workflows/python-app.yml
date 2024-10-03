@@ -32,4 +32,11 @@ jobs:
 
     - name: Run Fuzzer Test
       run: |
-        python test_fuzz.py  # This runs your f
+        python test_fuzz.py  
+
+    - name: Upload Fuzzing Report
+      if: always() 
+      uses: actions/upload-artifact@v3
+      with:
+        name: fuzzing-report
+        path: fuzzing_report.txt
